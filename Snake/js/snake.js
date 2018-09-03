@@ -191,7 +191,7 @@ function gameLoop() {
 }
 
 gameOver.onclick = function() {
-    gameOver.style.display = "inline";
+    gameOver.style.display = "none";
     start.style.display = "inline";
     score.innerHTML = "0";
 }
