@@ -13,29 +13,39 @@ var rightButton = document.getElementsByTagName("button")[3];
     }
 })();
 
+function notHitBody(row, col) {
+    for (var i = 0; i < body.rows.length; i++) {
+        if (row == body.rows[i] && col == body.cols[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+
 upButton.onclick = function() {
-    if (snake.row-1 != body.rows[0]) {
+    if (notHitBody(snake.row-1, snake.col)) {
         snake.direction = "up";
         snake.img = '<img class="snake up" src="img/snake.png">';
     }
 }
 
 leftButton.onclick = function() {
-    if (snake.col-1 != body.cols[0]) {
+    if (notHitBody(snake.row, snake.col-1)) {
         snake.direction = "left";
         snake.img = '<img class="snake left" src="img/snake.png">';
     }
 }
 
 downButton.onclick = function() {
-    if (snake.row+1 != body.rows[0]) {
+    if (notHitBody(snake.row+1, snake.col)) {
         snake.direction = "down";
         snake.img = '<img class="snake down" src="img/snake.png">';
     }
 }
 
 rightButton.onclick = function() {
-    if (snake.col+1 != body.cols[0]) {
+    if (notHitBody(snake.row, snake.col+1)) {
         snake.direction = "right";
         snake.img = '<img class="snake right" src="img/snake.png">';
     }
@@ -168,11 +178,12 @@ function displayGrid() {
 function gameLoop() {
     snake.computePosition();
     snake.checkEat();
-    snake.display();
     if (snake.hit()) {
+        gameSpace.innerHTML = "";
         gameOver.innerHTML = "GAME OVER!<br />Your final score is<br />"+score.innerHTML+"!";
-        gameOver.style.display = "block";
+        gameOver.style.display = "inline";
     } else {
+        snake.display();
         setTimeout(function() {
             window.requestAnimationFrame(gameLoop);
         }, 1000 / snake.fps);
@@ -180,9 +191,8 @@ function gameLoop() {
 }
 
 gameOver.onclick = function() {
-    gameOver.style.display = "none";
-    start.style.display = "block";
-    gameSpace.innerHTML = "";
+    gameOver.style.display = "inline";
+    start.style.display = "inline";
     score.innerHTML = "0";
 }
 
@@ -195,25 +205,25 @@ start.onclick = function() {
     document.onkeydown = function() {
         switch(event.keyCode) {
             case 37:
-                if (snake.col-1 != body.cols[0]) {
+                if (notHitBody(snake.row, snake.col-1)) {
                     snake.direction = "left";
                     snake.img = '<img class="snake left" src="img/snake.png">';
                 }
                 break;
             case 38:
-                if (snake.row-1 != body.rows[0]) {
+                if (notHitBody(snake.row-1, snake.col)) {
                     snake.direction = "up";
                     snake.img = '<img class="snake up" src="img/snake.png">';
                 }
                 break;
             case 39:
-                if (snake.col+1 != body.cols[0]) {
+                if (notHitBody(snake.row, snake.col+1)) {
                     snake.direction = "right";
                     snake.img = '<img class="snake right" src="img/snake.png">';
                 }
                 break;
             case 40:
-                if (snake.row+1 != body.rows[0]) {
+                if (notHitBody(snake.row+1, snake.col)) {
                     snake.direction = "down";
                     snake.img = '<img class="snake down" src="img/snake.png">';
                 }
