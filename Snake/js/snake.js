@@ -10,11 +10,6 @@ var rightButton = document.getElementsByTagName("button")[3];
     var userAgent = navigator.userAgent;
     if (userAgent.indexOf('Android') > -1 || userAgent.indexOf('iPhone') > -1 || userAgent.indexOf('iPad') > -1 || userAgent.indexOf('iPod') > -1 || userAgent.indexOf('Symbian') > -1) {
         buttons.style.display = "block";
-        if(window.orientation==90||window.orientation==-90) {
-            document.getElementsByTagName('body')[0].style.zoom = 0.9;
-        } else {
-            document.getElementsByTagName('body')[0].style.zoom = 1.5;
-        }
     }
 })();
 
