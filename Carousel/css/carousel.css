@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+}
+
+body,.box,.imgs,.img {
+    width: 440px;
+    height: 587px;
+    overflow: hidden;
+}
+
+body {
+    margin: auto;
+    text-align:center;
+    position: fixed;
+    top: 50%;
+    left:  50%;
+    margin-top: -293px;
+    margin-left: -220px;
+}
+
+.box {
+    position: relative;
+}
+
+.imgs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300%;
+    transition: left 1s;
+}
+
+.img {
+    float: left;
+}
+
+.left, .right {
+    width: 0px;
+    height: 0px;
+    border: 40px solid rgba(0, 0, 0, 0.2);
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -20px;
+    cursor: pointer;
+}
+
+.left {
+    border-left-color: transparent;
+    margin-left: -250px;
+}
+
+.right {
+    border-right-color: transparent;
+    margin-left: 170px;
+}
+
+.circles {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: 250px;
+    margin-left: -50px;
+}
+
+.circles li {
+    float: left;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    border: 3px solid rgba(0, 0, 0, 0.2);
+    margin: 5px;
+    cursor: pointer;
+}
+
+.circles>li:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.left:hover {
+    border-right-color: rgba(0, 0, 0, 0.5);
+}
+
+.right:hover {
+    border-left-color: rgba(0, 0, 0, 0.5);
+}
+
+.circles li.highlight {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+@media screen and (orientation: portrait) {
+    body {
+        zoom: 2;
+    }
+}
+
+@media screen and (max-height: 600px) {
+    body {
+        zoom: 0.9;
+    }
+}
