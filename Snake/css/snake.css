@@ -1,0 +1,146 @@
+html {
+    background-color: #333333;
+}
+
+body {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    top: 50%;
+    left: 50%;
+    margin: -300px -300px;
+}
+
+#title-bar {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    font-size: 20px;
+    color: white;
+    background-color: skyblue;
+}
+
+.food, .snake, .body {
+    height: 36px;
+}
+
+#title-bar .food {   
+    margin: 10px;
+    float: left;
+}
+
+.score {
+    margin-left: 10px;
+}
+
+.control-hint {
+    float: right;
+    margin-right: 20px;
+}
+
+#game-space {
+    width: 520px;
+    height: 480px;
+    border-width: 30px 40px 30px 40px;
+    border-style: solid;
+    border-color: lightblue;
+    background-color: white;
+}
+
+#start {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -70px;
+    margin-left: -240px;
+    font-size: 140px;
+    font-style: italic;
+    font-weight: bold;
+    color: darkblue;
+    z-index: 1000;
+}
+
+#start:hover {
+    color: yellowgreen;
+    cursor: pointer;
+}
+
+table {
+    border-spacing: 0;
+}
+
+.cell {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+}
+
+.cell0 {
+    background-color: #79E138;
+}
+
+.cell1 {
+    background-color: #94EF45;
+}
+
+.left {
+    transform: rotate(0deg);
+}
+
+.up {
+    transform: rotate(90deg);
+}
+
+.right {
+    transform: scaleX(-1);
+}
+
+.down {
+    transform: rotate(-90deg);
+}
+
+#game-over {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    text-align: center;
+    font-size: 80px;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -320px;
+    color: red;
+    cursor: pointer;
+}
+
+@media screen and (orientation: portrait) {
+    .buttons {
+        text-align: center;
+        margin-top: 20px;
+        display: none;
+    }
+    .buttons button {
+        width: 80px;
+        height: 80px;
+        font-size: 60px;
+        margin: 10px;
+    }
+} 
+@media screen and (orientation: landscape) {
+    .buttons {
+        text-align: center;
+        display: none;
+        position: fixed;
+        top: 40%;
+        left:  79%;
+    }
+    .buttons button {
+        width: 60px;
+        height: 60px;
+        font-size: 40px;
+        margin: 5px;
+    }
+}
+
+
+
