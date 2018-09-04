@@ -1,0 +1,57 @@
+* {
+    list-style: none;
+    padding: 0;
+    color: #494949;
+    text-decoration: none;
+    font-family: -apple-system, BlinkMacSystemFont, Helvetica,Arial,sans-serif;
+    line-height:1.62; 
+}
+
+@media screen and (orientation: landscape) {
+    body {
+        width: 600px;
+        margin: auto;
+    }
+    img {
+        width: 100px;
+    }
+
+}
+
+@media screen and (orientation: portrait) {
+    body {
+        width: 98%;
+        margin: auto;
+    }
+    img {
+        width: 200px;
+    }
+
+}
+
+#chart-title {
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+}
+
+#chart-title>div {
+    width: 20%;
+    padding: 3px;
+}
+
+#chart-title>div:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.1)
+}
+
+
+li.item>a {
+    display: flex;
+    border-top: 2px dotted lightgray;
+    padding: 5px;
+}
+
+li.item>a>* {
+    margin: 10px;
+}
