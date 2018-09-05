@@ -1,57 +1,75 @@
 * {
-    list-style: none;
-    padding: 0;
-    color: #494949;
-    text-decoration: none;
-    font-family: -apple-system, BlinkMacSystemFont, Helvetica,Arial,sans-serif;
-    line-height:1.62; 
+  list-style: none;
+  padding: 0;
+  color: #494949;
+  text-decoration: none;
+  font-family: -apple-system, BlinkMacSystemFont, Helvetica,Arial,sans-serif;
 }
 
 @media screen and (orientation: landscape) {
-    body {
-        width: 600px;
-        margin: auto;
-    }
-    img {
-        width: 100px;
-    }
+  body {
+    width: 600px;
+    margin: auto;
+  }
+  img {
+    width: 100px;
+  }
 
 }
 
 @media screen and (orientation: portrait) {
-    body {
-        width: 98%;
-        margin: auto;
-    }
-    img {
-        width: 200px;
-    }
+  body {
+    width: 98%;
+    margin: auto;
+  }
+  img {
+    width: 200px;
+  }
 
 }
 
 #chart-title {
-    margin-top: 20px;
-    text-align: center;
-    display: flex;
+  margin-top: 20px;
+  text-align: center;
+  display: flex;
 }
 
 #chart-title>div {
-    width: 20%;
-    padding: 3px;
+  width: 20%;
+  padding: 3px;
 }
 
 #chart-title>div:hover {
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.1)
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.1)
 }
 
 
 li.item>a {
-    display: flex;
-    border-top: 2px dotted lightgray;
-    padding: 5px;
+  display: flex;
+  border-top: 2px dotted lightgray;
+  padding: 5px;
 }
 
 li.item>a>* {
-    margin: 10px;
+  margin: 10px;
+  font-size: 14px;
+  line-height:2; 
+}
+
+li.item div.info div:first-child {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#chart-title>div.highlight {
+  background-color: #4b8ccb;
+  color: #fff;
+  pointer-events: none;
+}
+
+.loading {
+  text-align: center;
+  margin:  20px;
+  cursor: default;
 }

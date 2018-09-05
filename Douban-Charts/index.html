@@ -1,54 +1,29 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Douban Charts</title>
-        <link rel="stylesheet" type="text/css" href="css/douban.css">
-    </head>
-    <body>
-        <div id="chart-title">
-            <div>豆瓣Top250</div>
-            <div>豆瓣新片榜</div>
-            <div>一周口碑榜</div>
-            <div>北美票房榜</div>
-            <div>电影搜索</div>
-        </div>
-        <div id="top250">
-            <ul class="chart">
-                <li class="item">
-                    <a href="https://movie.douban.com/subject/1292052/">
-                        <em>1</em>
-                        <div class="img">
-                            <img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p480747492.webp">
-                        </div>
-                        <div class="info">
-                            <div>title</div>
-                            <div>info</div>
-                            <div>star</div>
-                            <div>quote</div>
-                        </div>
-                    </a>
-                </li>
-                <li class="item">
-                    <a href="https://movie.douban.com/subject/1292052/">
-                        <em>1</em>
-                        <div class="img">
-                            <img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p480747492.webp">
-                        </div>
-                        <div class="info">
-                            <div>title</div>
-                            <div>info</div>
-                            <div>star</div>
-                            <div>quote</div>
-                        </div>
-                    </a>
-                </li>
-            </ul>        
-        </div>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Douban Charts</title>
+    <link rel="stylesheet" type="text/css" href="css/douban.css">
+  </head>
+  <body>
+    <div id="chart-title">
+      <div class="highlight">豆瓣Top250</div>
+      <div>豆瓣新片榜</div>
+      <div>一周口碑榜</div>
+      <div>北美票房榜</div>
+      <div>电影搜索</div>
+    </div>
+    <div id="chart-box">
+      <ul class="chart">
+
+      </ul>
+      <div class="loading">正在加载...</div>
+    </div>
 
 
 
-        <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
-        <script type="text/javascript" src="js/douban.js"></script>
-    </body>
+    <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="js/douban.js"></script>
+  </body>
 </html>
