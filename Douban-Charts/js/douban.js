@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
   var loadingHint = $('.loading');
+  var searchBar = $('.search-bar');
   var top250Button = $('#chart-title div').eq(0);
   var newMovieButton = $('#chart-title div').eq(1);
   var oneWeekButton = $('#chart-title div').eq(2);
@@ -44,23 +45,33 @@ $(document).ready(function() {
     $('#chart-box ul').html('');
     $('#chart-title div').removeClass("highlight");
     loadingHint.hide();
+    searchBar.hide();
   }
 
 
   var top250 = {
     page: 0,
-    loadCount: 10,
+    loadCount: 25,
+    keyword: '',
+    typeName: '',
+    // 'top250' or 'search'
     getData: function() {
       $.ajax({
-        url: 'https://api.douban.com/v2/movie/top250',
+        url: 'https://api.douban.com/v2/movie/' + top250.typeName,
         dataType: 'jsonp',
         data: {
+          q: top250.keyword,
           start: top250.page * top250.loadCount,
           count: top250.loadCount
         },
       })
       .done(function(result) {
-        top250.display(result.subjects);
+        if (result.total == 0) {
+          loadingHint.text('没有更多了');
+          loadingHint.disabled = true;
+        } else {  
+          top250.display(result.subjects);
+        }
       })
       .fail(function() {
         alert('豆瓣API接口异常');
@@ -73,8 +84,10 @@ $(document).ready(function() {
       });
       loadingHint.text('点击加载更多');
     },
-    init: function() {
+    init: function(typeName,keyword='') {
       top250.page = 0;
+      top250.keyword = keyword;
+      top250.typeName = typeName;
       top250.getData();
       loadingHint.text('正在加载...');
       loadingHint.show();
@@ -87,8 +100,6 @@ $(document).ready(function() {
         url: 'https://api.douban.com/v2/movie/'+name,
         dataType: 'jsonp',
         data: {
-          start: 0,
-          count: 10,
           apikey: '0b2bdeda43b5688921839c8ecb20399b'
         },
       })
@@ -120,7 +131,7 @@ $(document).ready(function() {
   top250Button.click(function() {
     clearHighlight();
     top250Button.addClass('highlight');
-    top250.init();
+    top250.init('top250');
   });
 
   newMovieButton.click(function() {
@@ -142,9 +153,19 @@ $(document).ready(function() {
   });
 
   searchButton.click(function() {
-    alert('暂未实现');
+    clearHighlight();
+    searchButton.addClass('highlight');
+    searchBar.show();
+    $('.search-bar button').click(function() {
+      var value = $('.search-bar input').eq(0).val().replace(/\s/g,'');
+      if (value == '') {
+        $('.search-bar input').eq(0).val('不能为空，请重新输入！');
+      } else {
+        top250.init('search', value);
+      }
+    });
   });
 
-  top250.init();
+  top250.init('top250');
 
 });
