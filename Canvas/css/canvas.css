@@ -1,0 +1,27 @@
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+aside {display: block;}
+
+aside>img {vertical-align: top;}
+
+aside>img:hover,
+.highlight {border: 2px solid gray;}
+
+aside>* {
+  height: 20px;
+  margin: 5px;
+  padding: 0;
+}
+
+aside>*:hover {cursor: pointer;}
+
+canvas {
+  margin: 5px;
+  border: 2px solid black;
+}
+
+canvas.pen {cursor: url('../img/pen.png') 2 22, auto;}
+canvas.eraser {cursor: url('../img/eraser.png') 5 15, auto;}
